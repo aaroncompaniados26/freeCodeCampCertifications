@@ -2,65 +2,111 @@
 @import "reset";
 
 body {
-  font-family: 'Roboto', sans-serif;
-  // background: purple;
+  font-family:"Trebuchet MS", Helvetica, sans-serif;
+  box-sizing: border-box;
+  margin: 30px 10px;
 }
-
-h1 {
-  font-weight: 100;
-  font-size: 50px;
-}
-
-.home {
-  height: 100%;
-  width: 100%;
+header{
+  background-color: #EEEEEE;
   text-align: center;
-
-  img {
-    width: 100%;
-    max-width: 300px;
+  h1{
+    font-size: 35px;
+    font-weight: 700;
+    padding-top: 35px;
+    padding-bottom: 20px;
+  }
+  p{
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+}
+// HEADER ENDS
+#image{
+  text-align: center;
+  img{
+    display: block;
+    max-width: 100%;
     margin: 0 auto;
+    height: auto;
   }
-
-  .Aligner {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  p{
+    padding: 20px;
   }
-
-  .Aligner-item {
-    max-width: 50%;
-  }
-
-  .menu {
-    ul {
-      li {
-        padding: 10px 15px;
-        display: inline-block;
-        font-family: 'Roboto', sans-serif;
-        font-size: 18px;
-        font-weight: 500;
+}
+// IMAGE SECTION ENDS
+#storyLine{
+  background-color: #EEEEEE;
+  ul{
+    max-width: 530px;
+    margin: 0 auto;
+    text-align: left;
+    list-style: disc;
+    h3{
+      font-size: 20px;
+      font-weight: 700;
+      padding-top: 45px;
+      padding-bottom: 20px;
+      // margin-left: -10px;
+    }
+    li{
+      padding-bottom: 12px;
+      line-height: 1.3em;
+      font-size: 17px;
+      font-weight: 200;
+      strong{
+        font-weight: 700;
       }
     }
+  } //UNORDERED LIST ENDS
+}
+// STORY LINE ENDS
+footer{
+  background-color: #EEEEEE;
+  blockquote{
+    p{
+      font-style: italic;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 12px;
+    }
+  } //BLOCKQUOTE ENDS
+  h3{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 35px;
   }
-
-  .version-num {
-    background: #E8E8E8;
-    border-radius: 4px;
-    padding: 7px 15px;
-    display: inline-block;
-    font-size: 12px;
-    margin: 10px 0 20px;
-  }
-
-  a {
-    text-decoration: none;
-    color: #30395C;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      color: #43D4D6;
+} //FOOTER ENDS
+// ENDS
+// MEDIA QUERIES
+@media (max-width: 300px) {
+  #image{
+    p{
+      line-height: 1.2em;
+      width: 220px;
     }
   }
-}
+  ul{
+    width: 220px;
+    h3{ margin-left: 15px;}
+    li{
+      text-align: left;
+      margin-left: 30px;
+      margin-right: 10px;
+    }
+  }
+  // QUERIES FOR UL SECTION ENDS
+  blockquote{
+    p{
+      width: 160px;
+      margin-left: 42px;
+      text-align: justify;
+      font-weight: 200;
+    }
+  } //BLOCKQUOTE ENDS
+  h3{
+    line-height: 1.2em;
+  }
+ }
+// QUERIES END
