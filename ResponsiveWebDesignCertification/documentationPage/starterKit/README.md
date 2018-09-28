@@ -11,14 +11,15 @@ Simple steps to get you going.
 **Download Atom**
 	https://atom.io/
 
-**Install all the node packages** 
+**Install all the node packages**
 On the root of this project run on your terminal
-    
+
     npm install
-    
-**Update the node packages** 
-    
+
+**Update the node packages**
+
     npm update
+    npm install -g npm
 
 **Start the server**
 
