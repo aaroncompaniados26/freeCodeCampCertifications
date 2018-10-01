@@ -5,29 +5,93 @@
     <title>Flexbox Layout 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   </head>
   <body>
-    <header>Header</header>
-    <main>
-      <article class="">Article</article>
-      <aside class="">Aside</aside>
-      <nav>NAV
-        <!-- <ul>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-              <li id="menu">option </li>
-            </ul> -->
-      </nav>
-    </main>
-    <footer>Footer</footer>
+      <header>
+        <nav id="nav-bar">
+        <img src="img/trombones.png" alt="Trombones musical instrument">
+        <ul>
+          <li id="option01">Features</li>
+          <li id="option02">How It Works</li>
+          <li id="option03">Pricing</li>
+        </ul>
+        </nav>
+      </header> <!-- HEADER ENDS -->
+  <main>
+      <div class="introForm">
+        <h2>Handcrafted, home-made masterpieces</h2>
+        <form class="form" action="https://www.freecodecamp.com/email-submit" method="get">
+          <input type="email" name="email" value="" placeholder="Enter your email address" required><br>
+          <button type="submit" name="Submit">GET STARTED</button>
+        </form>
+      </div>  <!-- INTRO ENDS -->
 
+      <div class="featuresIcons">
+        <div class="sections">
+          <i class="fa fa-3x fa-fire"></i>
+          <div class="text">
+            <h2>Premium Materials</h2>
+            <p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your purchase.</p>
+          </div>
+        </div>
+        <div class="sections">
+          <i class="fa fa-3x fa-truck"></i>
+          <div class="text">
+            <h2>Fast Shipping</h2>
+            <p>We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if you are not satisfied.</p>
+          </div>
+        </div>
+        <div class="sections">
+          <i class="fa fa-3x fa-battery-full"></i>
+          <div class="text">
+            <h2>Quality Assurance</h2>
+            <p>For every purchase you make, we will ensure there are no damages or faults and we will check and test the pitch of your instrument.</p>
+          </div>
+        </div>
+     </div>
+<!-- FEATURED SERVICES SECTION ENDS -->
+     <div class="video">
+       <iframe id="video" height="315" src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560px" height="315px"></iframe>
+     </div>
 
+     <div class="grid">
+        <div class="columns">
+          <h3>TENOR TROMBONE</h3>
+          <div class="description">
+            <h4>$600</h4>
+            <p>Lorem ipsum. Lorem ipsum. Lorem ipsum dolor. Lorem ipsum.</p>
+            <button>SELECT</button>
+          </div>
+        </div> <!--COLUMN END-->
+        <div class="columns">
+          <h3>BASS TROMBONE</h3>
+          <div class="description">
+            <h4>$900</h4>
+            <p>Lorem ipsum. Lorem ipsum. Lorem ipsum dolor. Lorem ipsum.</p>
+            <button>SELECT</button>
+          </div>
+        </div><!--COLUMN END-->
+        <div class="columns">
+          <h3>VALVE TROMBONE</h3>
+          <div class="description">
+            <h4>$1200</h4>
+            <p>Lorem ipsum. Lorem ipsum. Lorem ipsum dolor. Lorem ipsum.</p>
+            <button>SELECT</button>
+          </div>
+        </div><!--COLUMN END-->
+    </div> <!--SECTION COLUMNS ENDS-->
 
+     <footer>
+       <ul>
+         <li>Privacy</li>
+         <li>Terms</li>
+         <li>Contact</li>
+       </ul>
+       <p>Copyright 2016, Original Trombones</p>
+     </footer>
+     </main>
+    <!-- JAVASCRIPT -->
     <script type="text/javascript" src="js/components/app.js"></script>
   </body>
 </html>
