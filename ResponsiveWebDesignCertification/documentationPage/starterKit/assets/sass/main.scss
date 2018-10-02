@@ -1,66 +1,90 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 @import "reset";
 
+*,::after, ::before{
+  box-sizing: border-box;
+}
 body {
   font-family: 'Roboto', sans-serif;
   // background: purple;
 }
-
-h1 {
-  font-weight: 100;
-  font-size: 50px;
-}
-
-.home {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-
-  img {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .Aligner {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .Aligner-item {
-    max-width: 50%;
-  }
-
-  .menu {
-    ul {
-      li {
-        padding: 10px 15px;
-        display: inline-block;
-        font-family: 'Roboto', sans-serif;
-        font-size: 18px;
-        font-weight: 500;
+main{
+  display: flex;
+  nav{
+    width: 16%;
+    border-right: 4px solid #99A1A1;
+    position: fixed;
+    @media(max-width: 320px){
+      width: 32%;
+    }
+    h2{
+      padding: 25px 0px;
+      font-size: 30px;
+      text-align: center;
+      border-bottom: 2px solid #99A1A1;
+      color: #000000;
+      @media(max-width: 320px){
+        font-size: 14px;
+      }
+    }
+    ul{
+      li{
+        padding: 15px 30px;
+        border-bottom: 2px solid #99A1A1;
+        @media(max-width: 320px){
+          padding: 10px;
+        }
+        a{
+          font-size: 17px;
+          text-decoration: none;
+          color: #4D4E53;
+          @media(max-width: 320px){
+            font-size: 15px;
+          }
+        }
       }
     }
   }
-
-  .version-num {
-    background: #E8E8E8;
-    border-radius: 4px;
-    padding: 7px 15px;
-    display: inline-block;
-    font-size: 12px;
-    margin: 10px 0 20px;
+.cap{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 16%;
+  @media(max-width: 320px){
+    margin-left: 35%;
   }
-
-  a {
-    text-decoration: none;
-    color: #30395C;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      color: #43D4D6;
+}
+  .compartiment{
+    h2{
+      padding: 25px 30px;
+      font-size: 30px;
+      color: #000000;
+      @media(max-width: 320px){
+        padding: 10px;
+      }
+    }
+    p{
+      font-size: 16px;
+      text-decoration: none;
+      color: #4D4E53;
+      padding: 10px 40px;
+      @media(max-width: 320px){
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+    ul{
+      list-style: disc;
+      font-size: 16px;
+      color: #4D4E53;
+      padding: 0px 60px;
+      @media(max-width: 320px){
+        padding: 10px;
+        font-size: 14px;
+      }
+      li{
+        padding: 10px 0px;
+      }
     }
   }
 }
