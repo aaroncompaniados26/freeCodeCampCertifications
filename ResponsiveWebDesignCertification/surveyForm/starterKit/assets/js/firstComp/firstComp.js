@@ -5,7 +5,7 @@ class Layout extends Component {
   constructor () {
     super()
     this.state = {
-      name: 'Joe'
+      name: ''
     }
   }
   clickedBtn = () => {
@@ -15,20 +15,20 @@ class Layout extends Component {
     return (<div className='home'>
         <div className='Aligner'>
           <div className='Aligner-item'>
-            <img src='/img/logo.png' />
+            <img src='/' />
             <h1>Starter-Kit-2k18</h1>
             <div className='menu'>
               <ul>
                 <div onClick={this.clickedBtn}>clickked this</div>
-                <li><a href='http://starterkit.codingphase.com' target='new'>Documentation</a></li>
-                <li><a href='http://www.codingphase.com' target='new'>CodingPhase.Com</a></li>
+                <li><a href='' target='new'>Documentation</a></li>
+                <li><a href='' target='new'></a></li>
               </ul>
             </div>
             <div className='version-num'>
               version 2.0.18
             </div>
             <br />
-            <a className='github-button' href='https://github.com/codingphasedotcom/Starter-Kit-2018' data-icon='octicon-star' data-style='mega' data-count-href='/codingphasedotcom/rocky/stargazers' data-count-api='/repos/codingphasedotcom/rocky#stargazers_count' data-count-aria-label='# stargazers on GitHub' aria-label='Star codingphasedotcom/rocky on GitHub'>Star</a>
+            <a className='github-button' href='' data-icon='octicon-star' data-style='mega' data-count-href='/' data-count-api='/' data-count-aria-label='# stargazers on GitHub' aria-label=''>Star</a>
           </div>
         </div>
       </div>)

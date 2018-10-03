@@ -37,7 +37,7 @@ var Layout = function (_Component) {
     };
 
     _this.state = {
-      name: 'Joe'
+      name: ''
     };
     return _this;
   }
@@ -76,7 +76,7 @@ var Layout = function (_Component) {
                   null,
                   _react2.default.createElement(
                     'a',
-                    { href: 'http://starterkit.codingphase.com', target: 'new' },
+                    { href: '', target: 'new' },
                     'Documentation'
                   )
                 ),
@@ -85,7 +85,7 @@ var Layout = function (_Component) {
                   null,
                   _react2.default.createElement(
                     'a',
-                    { href: 'http://www.codingphase.com', target: 'new' },
+                    { href: '', target: 'new' },
                     'CodingPhase.Com'
                   )
                 )
@@ -99,7 +99,7 @@ var Layout = function (_Component) {
             _react2.default.createElement('br', null),
             _react2.default.createElement(
               'a',
-              { className: 'github-button', href: 'https://github.com/codingphasedotcom/Starter-Kit-2018', 'data-icon': 'octicon-star', 'data-style': 'mega', 'data-count-href': '/codingphasedotcom/rocky/stargazers', 'data-count-api': '/repos/codingphasedotcom/rocky#stargazers_count', 'data-count-aria-label': '# stargazers on GitHub', 'aria-label': 'Star codingphasedotcom/rocky on GitHub' },
+              { className: 'github-button', href: '', 'data-icon': 'octicon-star', 'data-style': 'mega', 'data-count-href': '', 'data-count-api': '/repos/codingphasedotcom/rocky#stargazers_count', 'data-count-aria-label': '# stargazers on GitHub', 'aria-label': 'Star codingphasedotcom/rocky on GitHub' },
               'Star'
             )
           )
