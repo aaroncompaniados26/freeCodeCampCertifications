@@ -112,3 +112,40 @@ function truncateString(str, num) {
 }
 truncateString("Peter Piper picked a peck of pickled peppers", 11)
 //------------------------------------------------------------------
+// Basic Algorithm Scripting: Finders Keepers
+// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+function findElement(arr, func) {
+  let num = arr.filter(func);
+  return num[0];
+}
+findElement([1, 3, 5, 8, 9, 10], num => num % 2 === 0);
+//------------------------------------------------------------------
+// Basic Algorithm Scripting: Boo who
+// Check if a value is classified as a boolean primitive. Return true or false.
+function booWho(bool) {
+  return (typeof(bool) == 'boolean') ? true : false;
+}
+booWho(null);
+//---------------------------------------------------------------
+// Basic Algorithm Scripting: Title Case a Sentence
+// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map((word) => {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
+}
+titleCase("I'm a little tea pot");
+// ANOTHER WAY
+// return word.replace(word[0], word[0].toUpperCase()); ON MAP
+//--------------------------------------------------------------------
+// Basic Algorithm Scripting: Slice and Splice
+// You are given two arrays and an index, use the array methods slice and splice to copy each element of the first array into the second array, in order.
+function frankenSplice(arr1, arr2, n) {
+    let localArray = arr2.slice();
+    for (let i = 0; i < arr1.length; i++) {
+        localArray.splice(n, 0, arr1[i]);
+        n++;
+    }
+  return localArray;
+}
+//----------------------------------------------------------------------
