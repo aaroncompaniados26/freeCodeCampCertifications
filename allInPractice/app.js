@@ -149,3 +149,40 @@ function frankenSplice(arr1, arr2, n) {
   return localArray;
 }
 //----------------------------------------------------------------------
+// Basic Algorithm Scripting: Where do I Belong
+// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+function getIndexToIns(arr, num) {
+   arr.sort(function(a, b) {
+    return a - b;
+  });
+  for (let a = 0; a < arr.length; a++) {
+    if (arr[a] >= num)
+      return a;
+  }
+  return arr.length;
+}
+getIndexToIns([40, 60], 50);
+//--------------------------------------------------------------------
+// Basic Algorithm Scripting: Mutations
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+function mutation(arr) {
+  let result = arr[1].toLowerCase()
+    .split('');
+    return result.every((letter) => {
+      return arr[0].toLowerCase()
+        .indexOf(letter) != -1;
+    });
+}
+mutation(["hello", "hey"]);
+//----------------------------------------------------------------
+// Basic Algorithm Scripting: Chunky Monkey
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+function chunkArrayInGroups(arr, size) {
+  let result = [];
+  while (arr.length){
+    result.push(arr.splice(0, size));
+  }
+  return result;
+}
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+//---------------------------------------------------------------
