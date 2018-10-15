@@ -75,3 +75,28 @@ console.log(translatePigLatin("glove"));
   let result = ohRegex.test(ohStr);
 }
 //---------------------------------------------------------------
+// Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+// First argument is the sentence to perform the search and replace on.
+// Second argument is the word that you will be replacing (before).
+// Third argument is what you will be replacing the second argument with (after).
+myReplace = (str, before, after) => {
+   if(/[A-Z]/.test(before[0])){
+     let leaped = after.charAt(0).toUpperCase() + after.slice(1);
+     return str.replace(before, leaped);
+   }else {
+     return str.replace(before, after);
+   }
+}
+console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
+//---------------------------------------------------------------
+// Find the missing letter in the passed letter range and return it.
+// If all letters are present in the range, return undefined.
+function fearNotLetter(str) {
+  for (let i = 1; i < str.length; ++i) {
+    if (str.charCodeAt(i) - str.charCodeAt(i-1) > 1) {
+      return String.fromCharCode(str.charCodeAt(i - 1) + 1);
+    }
+  }
+}
+console.log(fearNotLetter("abce"));
+//----------------------------------------------------------------
