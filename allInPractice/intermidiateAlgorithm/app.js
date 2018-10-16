@@ -182,3 +182,104 @@ function sumPrimes(num) {
 // test here
 console.log(sumPrimes(10));
 //------------------------------------------------------------------
+// Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+// Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+dropElements = (arr, func) => { return arr.filter((func)); }
+console.log(dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}));
+
+//-----------OTHER INTERESTING SOLUTION--------------
+function dropElementsII(arr, func) {
+  while(arr.length > 0 && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+// test here
+console.log(dropElementsII([1, 2, 3, 9, 2], function(n) {return n > 2;}));
+//-----------------------------------------------------------------------------------
+// Intermediate Algorithm Scripting: Steamroller
+// Flatten a nested array. You must account for varying levels of nesting.
+steamrollArray = arr => {
+  let flat = [].concat(...arr);
+  // Array.some() method to find out if the new array contains an array still
+  return flat.some(Array.isArray) ? steamrollArray(flat) : flat;
+}
+console.log(steamrollArray([[["a"]], [["b"]]]));
+//--------------------------------------------------------------------
+// Intermediate Algorithm Scripting: Binary Agents
+// Return an English translated sentence of the passed binary string.
+// The binary string will be space separated.
+function binaryAgent(str) {
+     // Removes the spaces from the binary string
+    str = str.replace(/\s+/g, '');
+    // Pretty (correct) print binary (add a space every 8 characters)
+    str = str.match(/.{1,8}/g).join(" ");
+
+    let newBinary = str.split(" ");
+    const binaryCode = [];
+
+    for (let i = 0; i < newBinary.length; i++) {
+        binaryCode.push(String.fromCharCode(parseInt(newBinary[i], 2)));
+    }
+    return binaryCode.join("");
+}
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+//--------------------------------------------------------------------
+// Intermediate Algorithm Scripting: Everything Be True
+// Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+function truthCheck(collection, pre) {
+  let counter = 0;
+  for (let key in collection){
+      (collection[key].hasOwnProperty(pre)) ? counter++ : ' ' ;
+  }
+  return (counter == collection.length) ? true : false;
+}
+console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
+//-------------------------------BEST OPTION------------
+function truthCheckII(collection, pre) {
+  return collection.every(obj => obj[pre]);
+}
+console.log(truthCheckII([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
+//--------------------------------------------------------------------
+// Intermediate Algorithm Scripting: Arguments Optional
+// Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+function addTogether() {
+    const args = Array.from(arguments);
+    return args.some(n => typeof n !== 'number') ? undefined :
+            args.length > 1 ? args.reduce((acc, n) => acc += n, 0) :
+            //Had I just 1 argument & it's number, then sum it up.
+            (n) => typeof n === "number" ? n + args[0]:
+            undefined;
+}
+console.log(addTogether(2)(3));
+//-------------------------------------------------------------------
+// Intermediate Algorithm Scripting: Make a Person
+// Fill in the object constructor with the following methods below:
+var Person = function(firstAndLast) {
+  var fullName = firstAndLast;
+
+  this.getFirstName = function() {
+    return fullName.split(" ")[0];
+  };
+
+  this.getLastName = function() {
+    return fullName.split(" ")[1];
+  };
+
+  this.getFullName = function() {
+    return fullName;
+  };
+
+  this.setFirstName = function(name) {
+    fullName = name + " " + fullName.split(" ")[1];
+  };
+
+  this.setLastName = function(name) {
+    fullName = fullName.split(" ")[0] + " " + name;
+  };
+
+  this.setFullName = function(name) {
+    fullName = name;
+  };
+};
+//-----------------------------------------------------
