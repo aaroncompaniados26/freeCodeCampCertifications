@@ -100,3 +100,85 @@ function fearNotLetter(str) {
 }
 console.log(fearNotLetter("abce"));
 //----------------------------------------------------------------
+// Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+// In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+// The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+uniteUnique = (arr, arguments) => {
+  const args = [].slice.call(arguments);
+  args.forEach((value) => (value >= arr.length) ? arr.push(value) : ' ' );
+  return arr;
+}
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+//-----------------------------------BEST OPTION-----------------
+function uniteUniqueII(...arrays) {
+  //make an array out of the given arrays and flatten it (using the spread operator)
+  const flatArray = [].concat(...arrays);
+  // create a Set which clears any duplicates since it's a regular set and not a multiset
+  return [...new Set(flatArray)];
+}
+console.log(uniteUniqueII([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+//---------------------------------------------------------------------
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+convertHTML = (str) => {
+    str = str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,"&apos;");
+    return str;
+}
+console.log(convertHTML("Dolce & Gabbana"));
+//---------------MOST SOPHISTICATED----------------------
+function convertHTMLII(str) {
+  const htmlEntities = {
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+   '\'':"&apos;"
+  }
+  return str.split('').map((entity) => htmlEntities[entity] || entity).join('');
+}
+console.log(convertHTMLII("Dolce & Gabbana"));
+//-------------------------------------------------------------------
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+// The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+function sumFibs(num) {
+    const arrFib = [1, 1];
+    let nextFib = 0;
+    while((nextFib = arrFib[0] + arrFib[1]) <= num) {
+        arrFib.unshift(nextFib);
+      }
+    return arrFib.reduce((acc, value) => {
+      return acc + value * (value%2); //this way, I anule even numbers, xD
+    }, 0);
+}
+console.log(sumFibs(10));
+//------------------------------------------------------------
+// Sum all the prime numbers up to and including the provided number.
+function sumPrimes(num) {
+  //  prime checker
+  function isPrime(number){
+      for (let i = 2; i <= number; i++){
+          if(number % i === 0 && number!= i){
+          // true if divisible by any number that is not itself.
+             return false;
+          }
+       }
+       // if it passes for loops conditions it is a prime
+      return true;
+  }
+  // 1 is not a prime, so return nothing, also stops the recursive calls.
+  if (num === 1){
+    return 0;
+  }
+  // Check if your number is not prime
+  if(isPrime(num) === false){
+  // for non primes check the next number down from your maximum number, do not add anything to your answer
+    return sumPrimes(num - 1);
+  }
+  // Check if your number is prime
+  if(isPrime(num) === true){
+  // for primes add that number to the next number in the sequence through a recursive call to our sumPrimes function.
+    return num + sumPrimes(num - 1);
+  }
+}
+// test here
+console.log(sumPrimes(10));
+//------------------------------------------------------------------
