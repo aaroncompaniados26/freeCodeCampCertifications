@@ -282,4 +282,34 @@ var Person = function(firstAndLast) {
     fullName = name;
   };
 };
-//-----------------------------------------------------
+//------------------------------------CHALLENGE 1--------------------
+// Return true if the given string is a palindrome. Otherwise, return false.
+function palindrome(str) {
+  str = str.replace(/\s+|\_|\W/g, '').toLowerCase();
+  let test = str;
+  let test1 = test.split('').reverse().join('').toLowerCase();
+  return (test1 == str) ? true : false;
+}
+console.log(palindrome("_eye"));
+//--------------------------------------CHALLENGE 2---------------------
+// Convert the given number into a roman numeral.
+// All roman numerals answers should be provided in upper-case.
+const convertToRoman = function(num) {
+    const decimalValue = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+    const romanNumeral = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
+    let romanized = '';
+    for (let index = 0; index < decimalValue.length; index++) {
+        while (decimalValue[index] <= num) {
+            romanized += romanNumeral[index];
+            num -= decimalValue[index];
+        }
+    }
+  return romanized;
+}
+console.log(convertToRoman(36));
+//-----------------------------------------------------------------
+// JavaScript Algorithms and Data Structures Projects: Caesars Cipher
+// One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
+// A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
+// Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+// All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
