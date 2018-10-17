@@ -313,3 +313,19 @@ console.log(convertToRoman(36));
 // A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
 // Write a function which takes a ROT13 encoded string as input and returns a decoded string.
 // All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
+function rot13(str) {
+   const rotCharArray = []; //real meaning translated (+13)
+   const regEx = /[A-Z]/ ;
+   str = str.split("");
+   for (let x in str) {                                               //A - Z
+     if (regEx.test(str[x])) {                    //RANGE 65-90    ABCtotal
+       rotCharArray.push((str[x].charCodeAt() - 65 + 13) % 26 + 65);
+     } else {
+       rotCharArray.push(str[x].charCodeAt()); //if regEx is not meet , leave character as it was
+     }
+   }                                //translation applied
+   str = String.fromCharCode.apply(String, rotCharArray);
+   return str;
+ }
+console.log(rot13("SERR PBQR PNZC"));
+//---------------------------------------------------------------------
