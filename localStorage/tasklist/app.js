@@ -7,7 +7,7 @@ const btn = document.querySelector('.btn');
 //FILTER
 let filter = document.querySelector('#filter');
 //Tasks list
-const tasks = document.querySelector('ul.collection');
+const tasksList = document.querySelector('ul.collection');
 //CLEAR btn
 const clearBtn = document.querySelector('.clear-tasks');
 
@@ -29,14 +29,20 @@ const addTask = (e) => {
                         </a>
                   </li>
             `;
-      } else { return '';}
-      //Render to UI
-      tasks.insertAdjacentHTML('beforeend', result);
-      //Clean afterwards
-      input.value = '';
+            //Render to UI
+            tasksList.insertAdjacentHTML('beforeend', result);
 
+            // Store in localStorage
+            stockIn(`${input.value}`);
+
+            //Clean afterwards
+            input.value = '';
+      } 
+      else { 
+            return '';
+      }
       e.preventDefault();
-}
+};
 
 //-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -44,8 +50,9 @@ const addTask = (e) => {
 const taskRemove = (e) => {
       let removed;
       if(e.target.closest('.fa-remove')){
-            removed = e.target.closest('.fa-remove');
-            removed.parentElement.parentElement.remove();
+            removed = e.target.closest('.fa-remove').parentElement.parentElement.remove();
+            //DELETE in localStorage
+            removeTaskfromLS(e.target.closest('.fa-remove').parentElement.parentElement);
       }
 }
 
@@ -53,9 +60,12 @@ const taskRemove = (e) => {
 
 //ALL Remove function
 const allGone = () => {
-      while(tasks.firstChild){
-            tasks.removeChild(tasks.firstChild);
+      //UI
+      while(tasksList.firstChild){
+            tasksList.removeChild(tasksList.firstChild);
       }
+      //localStorage
+      localStorage.clear();
 }
 
 //-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -81,10 +91,12 @@ const filtered = (e) => {
 
 //Init function   
 (function loadListeners(){
+      //DOM Load Event
+      document.addEventListener('DOMContentLoaded', getTasks);
       //Task Adder
       form.addEventListener('submit', addTask);
       //Task Remover
-      tasks.addEventListener('click', taskRemove);
+      tasksList.addEventListener('click', taskRemove);
       //TaskS Remover
       clearBtn.addEventListener('click', allGone);
       //Filter listener
@@ -94,3 +106,54 @@ const filtered = (e) => {
 //-- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- --
 
 //LOCAL STORAGE FUNCTIONALITY
+//STORAGE Status
+function stockStatus(){
+      let tasks;
+      if (localStorage.getItem('tasks') === null) {
+            return tasks = [];
+      } 
+      else 
+      {
+            return tasks = JSON.parse(localStorage.getItem('tasks'));
+      }
+}
+
+//SAVE INTO 
+function stockIn(task){
+      let tasks = stockStatus();
+
+      tasks.push(task); // + new One in Arr
+
+      localStorage.setItem('tasks', JSON.stringify(tasks)) //+ new One to localStorage
+}
+
+//BRING STOCK STATUS 
+function getTasks(){
+      let tasks, result;
+      tasks = stockStatus();
+      if(tasks.length > 0){
+            tasks.forEach(current => {
+                  result = `
+                  <li class="collection-item">
+                        ${current}
+                        <a class="delete-item secondary-content">
+                              <i class="fa fa-remove"></i>
+                        </a>
+                  </li>
+            `;
+                  //Render to UI
+                  tasksList.insertAdjacentHTML('beforeend', result);
+            });
+      }      
+};
+
+//REMOVE FROM LocalStorage
+function removeTaskfromLS(task){
+      let tasks = stockStatus();
+      tasks.forEach((current, index) => {
+            if(task.textContent === current){
+                  tasks.splice(index, 1);
+            };
+      });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+};
