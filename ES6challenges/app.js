@@ -92,7 +92,37 @@ const decapitalize = ([first, ...rest]) => first.toLowerCase() + rest.join('');
 
 console.log(decapitalize('W3resource'));
 
-//----------------------------------------  
-//25
+//---------------------------------------- CREATE an ARRAY with all possible combinations  
+//
+const mixArr = (a, b) => a.reduce((acc, val) => acc.concat(b.map(y => [val, y])), []);
+
+console.log(mixArr([1, 2], ['a', 'b']));
+
+//--------------------------------------- TRUE o FALSE return
+
+const truCheck = (str, def = false) =>
+    /^(y|yes)$/i.test(str) ? true : /^(n|no)$/i.test(str) ? false : def;
 
 
+console.log(truCheck('yes'));
+
+//-------------------------------------- RETURN SAFE INTEGER
+
+const int = num => Math.round(Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER));
+
+console.log(int(4, 7));
+
+//------------------------------------- FILTER OUT ELEMENTS of a given Array
+
+const filtra = (arr, ...args) => arr.filter(curr => !args.includes(curr));
+
+console.log(filtra([2, 1, 2, 3], 1, 2));
+
+//------------------------------------- RANDOM NUMBER in SPECIFIED RANGE
+
+const random = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
+console.log(random(4,6));
+
+//------------------------------------
+//34
